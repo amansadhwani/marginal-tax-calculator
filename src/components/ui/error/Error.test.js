@@ -4,7 +4,9 @@ import { Error } from "./Error";
 
 test("renders error message", () => {
   const errorMessage = "This is an error";
-  const { getByText } = render(<Error errorMessage={errorMessage} />);
+  const { getByText } = render(
+    <Error errorMessage={errorMessage} show={true} />
+  );
   const errorElement = getByText(errorMessage);
   expect(errorElement).toBeInTheDocument();
 });

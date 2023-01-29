@@ -1,0 +1,79 @@
+.container {
+    max-width: 300px;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    border-radius: 8px;
+}
+
+.heading {
+    margin: 15px 0 15px 0;
+    text-align: center;
+}
+
+.legend {
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    font-size: 16px;
+    height: auto;
+    margin: 0;
+    outline: 0;
+    padding: 15px;
+    width: 100%;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+    margin-bottom: 20px;
+    border: 1px solid #dbdbdb;
+    background: white;
+}
+
+
+.select {
+    padding: 6px;
+    height: 32px;
+    border-radius: 2px;
+}
+
+
+fieldset {
+    margin-top: 20px;
+    border: none;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.label-bold {
+    font-weight: 800;
+}
+
+.border-bottom {
+    margin-bottom: 5px;
+    border-bottom: 2px solid #1818181a;
+}
+
+.number {
+    background-color: #5fcf80;
+    color: #fff;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    font-size: 0.8em;
+    margin-right: 4px;
+    line-height: 30px;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-radius: 100%;
+}
+
+@media screen and (min-width: 480px) {
+    .container {
+        max-width: 480px;
+    }
+}
+

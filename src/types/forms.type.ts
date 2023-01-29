@@ -19,6 +19,7 @@ export interface TSelect {
   onChangeYear: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   defaultValue?: string;
   refs: RefObject<HTMLSelectElement>;
+  disabled?: boolean;
 }
 
 export interface TButton extends TChildren {
@@ -31,6 +32,8 @@ export interface TLabel extends TChildren {
   className?: string;
 }
 
-export interface TError{
-  errorMessage:string;
+export interface TError {
+  errorMessage: string;
+  show:boolean
 }
+

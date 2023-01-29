@@ -1,6 +1,6 @@
 import { TError } from "../../../types/forms.type";
 import "./Error.css";
 
-export const Error = ({ errorMessage }: TError) => {
-  return <p className="error">{errorMessage}</p>;
+export const Error = ({ errorMessage, show }: TError) => {
+  return <>{show ? <p className="error">{errorMessage}</p> : null}</>;
 };

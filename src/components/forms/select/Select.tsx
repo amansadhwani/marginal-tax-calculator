@@ -8,6 +8,7 @@ export const Select: React.FC<TSelect> = ({
   options,
   onChangeYear,
   defaultValue = "",
+  disabled=false
 }) => {
   return (
     <>
@@ -18,6 +19,7 @@ export const Select: React.FC<TSelect> = ({
         defaultValue={defaultValue}
         className="select"
         data-testid="select"
+        disabled={disabled}
       >
         {options.map((option) => (
           <option key={option.value} value={option.value}>
