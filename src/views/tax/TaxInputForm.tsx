@@ -7,8 +7,7 @@ const TaxInputForm = ({
   assesmentYearRef,
   onChangeAssesmentYear,
   salaryRef,
-  handleSalaryChange,
-  disabledYear
+  handleSalaryChange
 }: TaxInputProps) => {
   return (
     <fieldset>
@@ -22,7 +21,6 @@ const TaxInputForm = ({
         options={TAX_ASSESMENT_YEAR}
         defaultValue={"2021"}
         onChangeYear={onChangeAssesmentYear}
-        disabled={disabledYear}
       />
       <Input
         label="Please enter your salary ($)"

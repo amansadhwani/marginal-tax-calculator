@@ -99,7 +99,6 @@ export const TaxCalculator = () => {
             onChangeAssesmentYear={onChangeAssesmentYear}
             salaryRef={salaryRef}
             handleSalaryChange={validateSalary}
-            disabledYear={taxData.loading}
           />
           <CalculateTaxButton disabled={disabledButton || taxData.error} />
           {taxData.showTaxBreakup ? (
