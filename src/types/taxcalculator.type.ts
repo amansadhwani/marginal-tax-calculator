@@ -7,8 +7,9 @@ export interface TaxBracket {
 
 export interface TTaxBreakup {
   totalTax: number;
-  taxBreakup:[];
+  taxBreakup:TTaxDetails[];
   effectiveRate:number
+  showTaxBreakup:boolean
 }
 
 export interface TTaxDetails extends TaxBracket{

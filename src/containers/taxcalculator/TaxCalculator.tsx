@@ -11,19 +11,30 @@ import {
   DEFAULT_ASSESMENT_YEAR,
 } from "../../constants/constants";
 import { fetchTaxBrackets } from "../../services/getTaxData";
-import { calculateTax } from "../../utils/helpers";
 import { TaxBreakup } from "../../views/tax/TaxBreakup";
 import { CalculateTaxButton } from "../../views/tax/CalculateTaxButton";
 import { Error } from "../../components/ui/error/Error";
 import "./TaxCalculator.css";
+import { TaxBracket, TTaxDetails } from "../../types/taxcalculator.type";
 
 export const TaxCalculator = () => {
   const salaryRef = useRef() as MutableRefObject<HTMLInputElement>;
   const assesmentYearRef = useRef<HTMLSelectElement>(null);
   const [disabledButton, setDisabledButton] = useState(true);
 
+  type TaxData = {
+    error: boolean;
+    showTaxBreakup: boolean;
+    taxBracketData: TaxBracket[];
+    taxCalculationData: {
+      totalTax: number;
+      taxBreakup: TTaxDetails[];
+      effectiveRate: number;
+    };
+  };
+
   const [taxData, setTaxData] = useReducer(
-    (prev: any, next: any) => {
+    (prev: TaxData, next: Partial<TaxData>) => {
       const newTaxData = { ...prev, ...next };
       return newTaxData;
     },
@@ -31,9 +42,14 @@ export const TaxCalculator = () => {
       error: false,
       showTaxBreakup: false,
       taxBracketData: [],
-      taxCalculationData: [{ totalTax: 0, taxBreakup: [], effectiveRate: 0 }],
-    }
+      taxCalculationData: {
+        totalTax: 0,
+        taxBreakup: [{ max: 0, min: 0, rate: 0, taxRate: 0 }],
+        effectiveRate: 0,
+      },
+    } as TaxData
   );
+
   const fetchTaxes = async (url: string) => {
     setDisabledButton(true);
     try {
@@ -70,15 +86,20 @@ export const TaxCalculator = () => {
     let year = assesmentYearRef.current
       ? assesmentYearRef.current.value
       : DEFAULT_ASSESMENT_YEAR;
-    let { totalTax, taxBreakup, effectiveRate } = calculateTax(
-      salary,
-      taxData.taxBracketData,
-      year
-    );
-    setTaxData({
-      showTaxBreakup: true,
-      taxCalculationData: { totalTax, taxBreakup, effectiveRate },
-    });
+
+    {
+      import("../../utils/helpers").then((module) => {
+        let { totalTax, taxBreakup, effectiveRate } = module.calculateTax(
+          salary,
+          taxData.taxBracketData,
+          year
+        );
+        setTaxData({
+          showTaxBreakup: true,
+          taxCalculationData: { totalTax, taxBreakup, effectiveRate },
+        });
+      });
+    }
   };
 
   useEffect(() => {
@@ -101,13 +122,13 @@ export const TaxCalculator = () => {
             handleSalaryChange={validateSalary}
           />
           <CalculateTaxButton disabled={disabledButton || taxData.error} />
-          {taxData.showTaxBreakup ? (
-            <TaxBreakup
-              totalTax={taxData.taxCalculationData.totalTax}
-              taxBreakup={taxData.taxCalculationData.taxBreakup}
-              effectiveRate={taxData.taxCalculationData.effectiveRate}
-            />
-          ) : null}
+
+          <TaxBreakup
+            totalTax={taxData.taxCalculationData.totalTax}
+            taxBreakup={taxData.taxCalculationData.taxBreakup}
+            effectiveRate={taxData.taxCalculationData.effectiveRate}
+            showTaxBreakup={taxData.showTaxBreakup}
+          />
         </form>
       </div>
     </>
