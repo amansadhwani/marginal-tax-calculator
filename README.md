@@ -1,37 +1,37 @@
-# marginal-tax-calculator
+# Marginal Tax Calculator
 
-# Screenshots 
+**Steps to run on local**
 
+* Clone repo  
+* Do `npm i` to install depedencies  
+* To start Server `npm start`  
+* Setup and start docker as mentioned [here](https://github.com/points/interview-test-server)
 
+**Features covered**
 
-# Steps to run on local
+* Select assesment year  
+* Get tax bracket data based on assesment year
+* Take salary input  
+* Returns total tax, effective rate, tax breakup  
+* Handle api error  
 
-1)Clone repo  
-2)Do `npm i` to install depedencies  
-3)To start Server `npm start`
-4)Setup and start docker as mentioned ![here](https://github.com/points/interview-test-server)
+**Optimazation techniques used**
 
-# Features covered
+* Memoization (for same input return results from cache without re-calculating)    
+* Stored salary input into refs so component doesn't re-render unnecessarily on every key stroke  
 
-1)Select assesment year  
-2)Get tax bracket data based on assesment year
-3)Take salary input  
-4)Returns total tax, effective rate, tax breakup  
-5)Handle api error  
+**Screenshots** 
+![1](https://user-images.githubusercontent.com/38903391/215337402-31b4b0dc-c2b5-409c-af44-34743745c49d.png)
+![2](https://user-images.githubusercontent.com/38903391/215336540-bdca5b77-313c-42a8-b02c-fa8f7e76afd1.png)
+![3](https://user-images.githubusercontent.com/38903391/215337420-222b2a2b-4354-4575-a6cc-623ae3b80a6f.png)
 
-# Optimazation techniques used
+**Unit tests report**
 
-1)Memoization (for same input return results from cache without re-calculating)    
-2)Stored salary input into refs so component doesn't re-render unnecessarily on every key stroke  
+![Test Coverage Report](https://user-images.githubusercontent.com/38903391/215336353-5b1f3d34-7031-4087-b1ed-a9fbe88fab6f.JPG)
 
-# Unit tests report
+**Future Scope**
 
-
-
-
-# Future Scope
-
-1)Loader when api call is being made   
-2)Retry button when api throws error  
-
+* Loader when api call is being made   
+* Retry button when api throws error  
+* Husky pre-commit hook
 
