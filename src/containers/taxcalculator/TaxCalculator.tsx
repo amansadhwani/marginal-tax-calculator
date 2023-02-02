@@ -1,54 +1,21 @@
-import React, {
-  useRef,
-  useEffect,
-  MutableRefObject,
-  useReducer,
-  useState,
-} from "react";
-import TaxInputForm from "../../views/tax/TaxInputForm";
+import React, { useRef, useEffect, MutableRefObject, useState } from "react";
+import TaxInputForm from "../../views/taxcalculator/TaxInputForm";
 import {
   API_ENDPOINT,
   DEFAULT_ASSESMENT_YEAR,
 } from "../../constants/constants";
 import { fetchTaxBrackets } from "../../services/getTaxData";
-import { TaxBreakup } from "../../views/tax/TaxBreakup";
-import { CalculateTaxButton } from "../../views/tax/CalculateTaxButton";
+import { TaxBreakup } from "../../views/taxcalculator/TaxBreakup";
+import { CalculateTaxButton } from "../../views/taxcalculator/CalculateTaxButton";
 import { Error } from "../../components/ui/error/Error";
+import useTaxData from "./context/useTaxData";
 import "./TaxCalculator.css";
-import { TaxBracket, TTaxDetails } from "../../types/taxcalculator.type";
 
 export const TaxCalculator = () => {
   const salaryRef = useRef() as MutableRefObject<HTMLInputElement>;
   const assesmentYearRef = useRef<HTMLSelectElement>(null);
   const [disabledButton, setDisabledButton] = useState(true);
-
-  type TaxData = {
-    error: boolean;
-    showTaxBreakup: boolean;
-    taxBracketData: TaxBracket[];
-    taxCalculationData: {
-      totalTax: number;
-      taxBreakup: TTaxDetails[];
-      effectiveRate: number;
-    };
-  };
-
-  const [taxData, setTaxData] = useReducer(
-    (prev: TaxData, next: Partial<TaxData>) => {
-      const newTaxData = { ...prev, ...next };
-      return newTaxData;
-    },
-    {
-      error: false,
-      showTaxBreakup: false,
-      taxBracketData: [],
-      taxCalculationData: {
-        totalTax: 0,
-        taxBreakup: [{ max: 0, min: 0, rate: 0, taxRate: 0 }],
-        effectiveRate: 0,
-      },
-    } as TaxData
-  );
+  const { taxData, setTaxData } = useTaxData();
 
   const fetchTaxes = async (url: string) => {
     setDisabledButton(true);
