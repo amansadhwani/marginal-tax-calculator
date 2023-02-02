@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { Error } from "./Error";
 
-test("renders error message", () => {
+it("renders error message", () => {
   const errorMessage = "This is an error";
   const { getByText } = render(
     <Error errorMessage={errorMessage} show={true} />

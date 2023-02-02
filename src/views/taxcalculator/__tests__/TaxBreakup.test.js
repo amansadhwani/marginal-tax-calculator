@@ -14,6 +14,7 @@ describe("TaxBreakup Component", () => {
   it("should render TaxBreakup component", () => {
     const { getByText } = render(
       <TaxBreakup
+        showTaxBreakup={true}
         totalTax={totalTax}
         effectiveRate={effectiveRate}
         taxBreakup={taxBreakup}
