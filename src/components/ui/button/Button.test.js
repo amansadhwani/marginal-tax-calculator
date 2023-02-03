@@ -3,14 +3,14 @@ import { render, fireEvent } from "@testing-library/react";
 import { Button } from "./Button";
 
 describe("Button component", () => {
-  test("should render button with children", () => {
+  it("should render button with children", () => {
     const buttonText = "Click me";
     const { getByText } = render(<Button>{buttonText}</Button>);
     const buttonElement = getByText(buttonText);
     expect(buttonElement).toBeInTheDocument();
   });
 
-  test("should handle onClick event", () => {
+  it("should handle onClick event", () => {
     const onClickMock = jest.fn();
     const { getByRole } = render(
       <Button onClickHandle={onClickMock} disabled={false}>
@@ -22,7 +22,7 @@ describe("Button component", () => {
     expect(onClickMock).toHaveBeenCalled();
   });
 
-  test("should render disabled button", () => {
+  it("should render disabled button", () => {
     const { getByRole } = render(<Button disabled>Click me</Button>);
     const buttonElement = getByRole("button");
     expect(buttonElement).toBeDisabled();

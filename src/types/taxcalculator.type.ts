@@ -24,3 +24,15 @@ export interface TaxInputProps {
   handleSalaryChange:(value: string) => void;
   disabledYear?:boolean
 }
+
+export type TaxData = {
+  error: boolean;
+  showTaxBreakup: boolean;
+  taxBracketData: TaxBracket[];
+  taxCalculationData: {
+    totalTax: number;
+    taxBreakup: TTaxDetails[];
+    effectiveRate: number;
+  };
+};
+

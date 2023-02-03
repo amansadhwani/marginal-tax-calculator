@@ -3,14 +3,14 @@ import { render, fireEvent } from "@testing-library/react";
 import { Input } from "./Input";
 
 describe("Input component", () => {
-  test("should renders input with label", () => {
+  it("should renders input with label", () => {
     const labelText = "Name:";
     const { getByText } = render(<Input label={labelText} />);
     const labelElement = getByText(labelText);
     expect(labelElement).toBeInTheDocument();
   });
 
-  test("should handle onChange event", () => {
+  it("should handle onChange event", () => {
     const onChangeMock = jest.fn();
     const { getByPlaceholderText } = render(
       <Input placeholder="Enter your name" onChange={onChangeMock} />
@@ -20,7 +20,7 @@ describe("Input component", () => {
     expect(onChangeMock).toHaveBeenCalledWith("Aman");
   });
 
-  test("should render disabled input", () => {
+  it("should render disabled input", () => {
     const { getByPlaceholderText } = render(
       <Input placeholder="Enter your name" disabled />
     );
@@ -28,7 +28,7 @@ describe("Input component", () => {
     expect(inputElement).toBeDisabled();
   });
 
-  test("should render input with default value", () => {
+  it("should render input with default value", () => {
     const { getByDisplayValue } = render(<Input defaultValue="Aman" />);
     const inputElement = getByDisplayValue("Aman");
     expect(inputElement).toBeInTheDocument();

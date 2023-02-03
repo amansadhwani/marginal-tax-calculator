@@ -15,7 +15,7 @@
 * Returns total tax, effective rate, tax breakup  
 * Handle api error  
 
-**Optimazation techniques used**
+**Optimization techniques used**
 
 * Memoization (for same input return results from cache without re-calculating)    
 * Stored salary input into refs so component doesn't re-render unnecessarily on every key stroke  
