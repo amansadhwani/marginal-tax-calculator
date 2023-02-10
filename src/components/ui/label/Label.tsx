@@ -1,6 +1,6 @@
 import React from "react";
-import { TLabel } from "../../../types/forms.type";
+import { LabelProps } from "../../../types/forms.type";
 
-export const Label: React.FC<TLabel> = ({ children, className }) => {
+export const Label: React.FC<LabelProps> = ({ children, className }) => {
   return <label className={className}>{children}</label>;
 };

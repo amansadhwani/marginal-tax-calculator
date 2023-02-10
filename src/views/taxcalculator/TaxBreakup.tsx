@@ -2,6 +2,11 @@ import { Label } from "../../components/ui/label/Label";
 import { TTaxBreakup, TTaxDetails } from "../../types/taxcalculator.type";
 import React, { memo } from "react";
 
+const formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'CAD',
+});
+
 export const TaxBreakup = memo(
   ({ totalTax, effectiveRate, taxBreakup, showTaxBreakup }: TTaxBreakup) => {
     return (
@@ -13,28 +18,28 @@ export const TaxBreakup = memo(
             </legend>
             <div className="border-bottom">
               <Label>Total tax</Label>
-              <Label className="label-bold">${totalTax?.toFixed(2)}</Label>
+              <Label className="label-bold">{formatter.format(totalTax)}</Label>
             </div>
             <div className="border-bottom">
               <Label>Effective rate</Label>
               <Label className="label-bold">
-                {Number(effectiveRate).toFixed(2)} %
+                {Number(effectiveRate*100).toFixed(2)} %
               </Label>
             </div>
             <div className="border-bottom">
               {taxBreakup?.map((item: TTaxDetails, index) => {
                 return (
                   <p key={index}>
-                    Tax Rate:{" "}
+                    Charged:&nbsp;
                     <span className="label-bold">
-                      ${Number(item?.taxRate).toFixed(2)}{" "}
+                    {formatter.format(item?.taxRate)}&nbsp;
                     </span>
-                    Max:
+                    Max:&nbsp;&nbsp;
                     <span className="label-bold">
-                      {" "}
-                      {item.max ? item.max : "Infinity"}{" "}
+                    {item.max ? formatter.format(item.max) : "Infinity"}&nbsp;
                     </span>
-                    Rate: <span className="label-bold">{item.rate}</span>
+                    Rate:&nbsp;&nbsp;
+                    <span className="label-bold">{item.rate}</span>
                   </p>
                 );
               })}

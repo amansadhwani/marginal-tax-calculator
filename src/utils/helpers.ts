@@ -16,7 +16,7 @@ export const calculateTax = (
   taxBrackets: TaxBracket[],
   year: string
 ) => {
-  if (cachedResults[year] && cachedResults[year][income]) {
+  if (cachedResults?.[year]?.[income]) {
     return cachedResults[year][income];
   }
 

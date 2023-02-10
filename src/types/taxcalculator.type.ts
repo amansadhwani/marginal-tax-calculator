@@ -5,14 +5,14 @@ export interface TaxBracket {
   rate: number;
 }
 
-export interface TTaxBreakup {
+export interface TaxBreakup {
   totalTax: number;
-  taxBreakup:TTaxDetails[];
+  taxBreakup:TaxDetails[];
   effectiveRate:number
   showTaxBreakup:boolean
 }
 
-export interface TTaxDetails extends TaxBracket{
+export interface TaxDetails extends TaxBracket{
   taxRate:number
 }
 
@@ -31,7 +31,7 @@ export type TaxData = {
   taxBracketData: TaxBracket[];
   taxCalculationData: {
     totalTax: number;
-    taxBreakup: TTaxDetails[];
+    taxBreakup: TaxDetails[];
     effectiveRate: number;
   };
 };

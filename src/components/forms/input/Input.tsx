@@ -1,8 +1,8 @@
 import React from "react";
-import { TInput } from "../../../types/forms.type";
+import { InputProps } from "../../../types/forms.type";
 import { Label } from "../../ui/label/Label";
 
-export const Input: React.FC<TInput> = ({
+export const Input: React.FC<InputProps> = ({
   label,
   type = "text",
   refs,

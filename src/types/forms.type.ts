@@ -1,7 +1,7 @@
 import React, { RefObject } from "react";
-import { TChildren } from "./common.type";
+import { ChildrenNode } from "./common.type";
 
-export interface TInput {
+export interface InputProps {
   label: string;
   type?: string;
   refs: RefObject<HTMLInputElement>;
@@ -12,7 +12,7 @@ export interface TInput {
   disabled?: boolean;
 }
 
-export interface TSelect {
+export interface SelectProps {
   label: string;
   options: { value: string; label: string }[];
   value?: string;
@@ -22,17 +22,17 @@ export interface TSelect {
   disabled?: boolean;
 }
 
-export interface TButton extends TChildren {
+export interface ButtonProps extends ChildrenNode {
   type?: "submit" | "reset" | "button";
   onClickHandle?: () => React.MouseEventHandler<HTMLButtonElement>;
   disabled: boolean;
 }
 
-export interface TLabel extends TChildren {
+export interface LabelProps extends ChildrenNode {
   className?: string;
 }
 
-export interface TError {
+export interface ErrorProps {
   errorMessage: string;
   show:boolean
 }

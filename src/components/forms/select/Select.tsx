@@ -1,8 +1,8 @@
 import React from "react";
-import { TSelect } from "../../../types/forms.type";
+import { SelectProps } from "../../../types/forms.type";
 import { Label } from "../../ui/label/Label";
 
-export const Select: React.FC<TSelect> = ({
+export const Select: React.FC<SelectProps> = ({
   refs,
   label,
   options,

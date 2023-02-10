@@ -1,8 +1,8 @@
 import { FunctionComponent, ReactElement } from "react";
-import { TButton } from "../../../types/forms.type";
+import { ButtonProps } from "../../../types/forms.type";
 import "./Button.css";
 
-export const Button: FunctionComponent<TButton> = ({
+export const Button: FunctionComponent<ButtonProps> = ({
   children,
   type = "button",
   onClickHandle,
