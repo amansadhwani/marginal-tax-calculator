@@ -23,7 +23,8 @@
 **Screenshots** 
 ![1](https://user-images.githubusercontent.com/38903391/215337402-31b4b0dc-c2b5-409c-af44-34743745c49d.png)
 ![2](https://user-images.githubusercontent.com/38903391/215336540-bdca5b77-313c-42a8-b02c-fa8f7e76afd1.png)
-![3](https://user-images.githubusercontent.com/38903391/215337420-222b2a2b-4354-4575-a6cc-623ae3b80a6f.png)
+![3](https://user-images.githubusercontent.com/38903391/218268414-35f0c72a-cd28-45f6-94af-834634c07c48.JPG)
+
 
 **Unit tests report**
 
