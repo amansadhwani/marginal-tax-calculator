@@ -21,6 +21,7 @@
 * Stored salary input into refs so component doesn't re-render unnecessarily on every key stroke  
 
 **Screenshots** 
+
 ![1](https://user-images.githubusercontent.com/38903391/218268648-18c2d73f-56fb-4bd1-a3e5-74aeda987835.png)
 ![2](https://user-images.githubusercontent.com/38903391/218268652-d88f6a5c-06cd-45bc-837a-8c0f4f652b02.png)
 ![3](https://user-images.githubusercontent.com/38903391/218268658-2d91ec01-c453-47df-9174-e3fd188d1143.png)
