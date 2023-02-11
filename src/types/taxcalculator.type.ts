@@ -5,7 +5,7 @@ export interface TaxBracket {
   rate: number;
 }
 
-export interface TaxBreakup {
+export interface TaxBreakupProps {
   totalTax: number;
   taxBreakup:TaxDetails[];
   effectiveRate:number

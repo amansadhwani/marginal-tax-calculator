@@ -1,5 +1,5 @@
 import { Label } from "../../components/ui/label/Label";
-import { TTaxBreakup, TTaxDetails } from "../../types/taxcalculator.type";
+import { TaxBreakupProps, TaxDetails } from "../../types/taxcalculator.type";
 import React, { memo } from "react";
 
 const formatter = new Intl.NumberFormat('en-US', {
@@ -8,7 +8,7 @@ const formatter = new Intl.NumberFormat('en-US', {
 });
 
 export const TaxBreakup = memo(
-  ({ totalTax, effectiveRate, taxBreakup, showTaxBreakup }: TTaxBreakup) => {
+  ({ totalTax, effectiveRate, taxBreakup, showTaxBreakup }: TaxBreakupProps) => {
     return (
       <>
         {showTaxBreakup ? (
@@ -27,7 +27,7 @@ export const TaxBreakup = memo(
               </Label>
             </div>
             <div className="border-bottom">
-              {taxBreakup?.map((item: TTaxDetails, index) => {
+              {taxBreakup?.map((item: TaxDetails, index) => {
                 return (
                   <p key={index}>
                     Charged:&nbsp;
